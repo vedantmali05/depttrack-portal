@@ -1,0 +1,68 @@
+.number-code-input::-webkit-inner-spin-button,
+.number-code-input::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* Chrome, Safari, Edge */
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.number-code-input {
+  appearance: textfield;
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+}
+
+fieldset .password-visibility-btn img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 60%;
+}
+
+fieldset .password-visibility-btn .eye-slash,
+fieldset .password-visibility-btn.visible .eye {
+  opacity: 0;
+  visibility: hidden;
+}
+fieldset .password-visibility-btn .eye,
+fieldset .password-visibility-btn.visible .eye-slash {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* STEPS ICON VISIBILITY */
+
+.step-sec .step {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.step.completed .pending,
+.step .completed {
+  display: none !important;
+}
+
+.step .pending,
+.step.completed .completed {
+  display: inline !important;
+}
+
+.step .pending,
+.step .completed,
+.step.completed {
+  color: var(--clr-primary-dark);
+}
+
+.password-conditions .pending {
+  color: currentColor;
+}
+
+.password-conditions {
+  width: 100%;
+  text-align: left;
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  margin-bottom: 0.8rem;
+}
