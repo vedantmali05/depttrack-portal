@@ -137,6 +137,7 @@ body {
 
 p {
   text-wrap: pretty;
+  margin: 0;
 }
 
 h1,

@@ -204,3 +204,73 @@ fieldset .msg.warn,
   border-radius: 1.6rem;
   background-color: var(--clr-status-bg);
 }
+
+/* /////////////////////////
+  NAV BAR
+///////////////////////// */
+
+main {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.side-nav .logo img {
+  width: 2.8rem;
+}
+
+.side-nav {
+  height: 100vh;
+  width: 250px;
+  border-right: 1px solid var(--clr-grey-divider);
+}
+
+.side-nav .nav-link {
+  color: #000;
+  text-wrap: nowrap;
+}
+
+.side-nav .nav-link:hover {
+  background-color: #e5e5e5;
+}
+
+.side-nav .nav-link.active {
+  background-color: #495057;
+  color: #fff;
+}
+
+.side-nav .nav-item {
+  margin: 0.5rem 0;
+}
+
+.side-nav .profile-section {
+  padding: 1rem;
+  color: #000;
+}
+
+.quick-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-top: 20px;
+}
+
+.quick-link-btn {
+  background-color: #ecf6ff;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 25px;
+  padding: 2rem !important;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.quick-link-btn:hover {
+  background-color: #e9ecef;
+  transform: translateY(-2px);
+}
+
+.quick-link-btn i {
+  font-size: 18px;
+}
