@@ -212,6 +212,8 @@ fieldset .msg.warn,
 main {
   height: 100vh;
   overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .side-nav .logo img {
