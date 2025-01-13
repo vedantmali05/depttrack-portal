@@ -276,3 +276,114 @@ main {
 .quick-link-btn i {
   font-size: 18px;
 }
+
+
+/* Section Header Styling */
+section h2 {
+  font-size: var(--fs-500);
+  font-weight: 600;
+}
+
+section a.text-primary {
+  font-size: var(--fs-400);
+  display: flex;
+  align-items: center;
+  text-wrap: nowrap;
+}
+
+section a.text-primary i {
+  margin-left: 0.2rem;
+}
+
+/* Table Container */
+.table-responsive {
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Header */
+.table thead th {
+  font-size: var(--fs-400);
+  font-weight: 600;
+  color: #495057;
+  text-align: center;
+  vertical-align: middle;
+  padding: 1rem 0.8rem;
+}
+
+/* Table Body Rows */
+.table tbody tr {
+  transition: background-color 0.2s ease-in-out;
+}
+
+.table tbody tr:hover {
+  background-color: #f8f9fa; /* Subtle hover background */
+}
+
+/* Table Cells */
+.table td {
+  font-size: var(--fs-400);
+  text-align: center;
+  vertical-align: middle;
+  padding: 0.8rem 0.6rem;
+  white-space: nowrap; /* Prevents wrapping in cells */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds ellipsis for overflowing text */
+}
+
+/* Status Badges */
+.badge {
+  padding: 0.5rem 0.75rem;
+  text-transform: capitalize;
+}
+
+/* Chevron Icon Hover Effect */
+.table a.text-primary i {
+  font-size: var(--fs-500) !important;
+  transition: transform 0.2s ease;
+  margin: auto;
+}
+
+.table a.text-primary:hover i {
+  transform: translateX(4px); /* Moves the chevron slightly on hover */
+}
+
+/* Whitespace and Alignments */
+.table td:first-child,
+.table th:first-child {
+  text-align: center; /* Center align Sr. No. */
+}
+
+.table td:last-child,
+.table th:last-child {
+  text-align: center; /* Center align Actions */
+}
+
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  text-align: left; /* Align Name of Report to the left for readability */
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  text-align: left; /* Align Submitted By to the left for readability */
+}
+
+/* Responsive Padding for Small Screens */
+@media (max-width: 768px) {
+  .table td,
+  .table th {
+    padding: 0.6rem;
+    font-size: var(--fs-400);
+  }
+
+  section a.text-primary {
+    font-size: var(--fs-500);
+  }
+
+  section h2 {
+    font-size: 1.6rem;
+  }
+}

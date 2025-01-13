@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // If all validations pass, proceed to the next page
         if (isDepartmentValid && isRoleValid && isRoleSpecificValid) {
-            window.location.href = "/index.html"; // Redirect to next page or final page
+            window.location.href = "./index.html"; // Redirect to next page or final page
         }
     });
 

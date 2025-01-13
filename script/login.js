@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // If all validations pass, check credentials
         if (isEmailValid && isPasswordValid) {
             if (emailInput.value.trim() === dummyEmail && passwordInput.value.trim() === dummyPassword) {
-                window.location.href = "/index.html";
+                window.location.href = "./index.html";
             } else {
                 // Create a toast container if it doesn't exist
                 let toastContainer = document.getElementById("toast-container");

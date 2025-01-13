@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
             isPasswordValid &&
             isConfirmPasswordValid
         ) {
-            window.location.href = "/signup-role-selection.html"
+            window.location.href = "./signup-role-selection.html"
         }
     });
 });

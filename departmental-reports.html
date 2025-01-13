@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departmental Reports</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style/main.css">
+
+    <style>
+        /* Filter and Sorting Section Styling */
+        section .form-label {
+            font-weight: 500;
+            /* Emphasize labels for readability */
+        }
+
+        section .form-select {
+            border-radius: 8px;
+            /* Add subtle rounding for inputs */
+            padding: 0.8rem 1rem;
+            /* Larger padding for better usability */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* Add subtle shadow */
+        }
+
+        section .btn-primary {
+            font-size: 1.6rem;
+            /* Ensure button text is prominent */
+            border-radius: 8px;
+            /* Round the button corners */
+            transition: all 0.3s ease-in-out;
+        }
+
+        section .btn-primary:hover {
+            background-color: #0056b3;
+            /* Darker hover effect */
+            transform: translateY(-2px);
+            /* Add subtle lift effect on hover */
+        }
+
+        section .d-flex.flex-wrap {
+            border: 1px solid #e6e6e6;
+            /* Add border around the section */
+            border-radius: 12px;
+            /* Slightly round the section */
+            background-color: #f9f9f9;
+            /* Light gray background */
+        }
+
+        section .d-flex.flex-wrap>div {
+            flex: 1;
+            /* Ensure equal spacing for dropdowns */
+            min-width: 250px;
+            /* Minimum width for better alignment */
+        }
+
+        @media (max-width: 768px) {
+            section .d-flex.flex-wrap {
+                flex-direction: column;
+                padding: 1.5rem;
+                /* Add more padding for smaller screens */
+            }
+
+            section .d-flex.flex-wrap>div {
+                width: 100%;
+                /* Full width for dropdowns */
+            }
+
+            section .btn-primary {
+                width: 100%;
+                /* Full width for button */
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="d-flex">
+        <!-- Side Navigation -->
+        <nav class="side-nav d-flex flex-column">
+            <!-- User Profile Section -->
+            <div class="profile-section d-flex gap-2">
+                <img src="./media/user-default.svg" alt="Profile" class="rounded-circle mb-2 w-25">
+                <div class="align-content-center">
+                    <p class="fw-bold">John Doe</p>
+                    <a href="#" class="text-decoration-underline fs-300 text-info-emphasis">Edit Profile</a> |
+                    <a href="#" class="text-decoration-underline fs-300 text-info-emphasis">Logout</a>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav flex-column px-3 pt-5 border-top border-dark-subtle">
+                <li class="nav-item">
+                    <a href="./index.html" class="nav-link">
+                        <i class="bi bi-house-door me-2"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="./departmental-reports.html" class="nav-link active">
+                        <i class="bi bi-journal-text me-2"></i> Departmental Reports
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="./staff-and-faculty.html" class="nav-link">
+                        <i class="bi bi-person-lines-fill me-2"></i> Staff and Faculty
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="./student-activities.html" class="nav-link">
+                        <i class="bi bi-people me-2"></i> Student Activities
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="./notifications.html" class="nav-link">
+                        <i class="bi bi-bell me-2"></i> Notifications
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Branding -->
+            <div class="p-3 text-center logo mt-auto border-top border-black-subtle">
+                <p><img src="./media/logo.png" alt="">
+                    DeptTrack Portal</p>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 p-2">
+            <section class="my-5">
+                <!-- Section Header -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="fs-600 text-dark">Departmental Reports</h2>
+                </div>
+
+                <section class="my-5">
+                    <!-- Filter and Sorting Controls -->
+                    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+                        <!-- Filter by Status -->
+                        <div class="d-flex flex-column">
+                            <label for="filterStatus" class="form-label text-muted mb-1">Filter by Status</label>
+                            <select id="filterStatus" class="form-select">
+                                <option value="all" selected>All</option>
+                                <option value="approved">Approved</option>
+                                <option value="pending">Pending</option>
+                                <option value="rejected">Rejected</option>
+                            </select>
+                        </div>
+
+                        <!-- Sort by Date -->
+                        <div class="d-flex flex-column">
+                            <label for="sortDate" class="form-label text-muted mb-1">Sort by Date</label>
+                            <select id="sortDate" class="form-select">
+                                <option value="latest" selected>Latest First</option>
+                                <option value="oldest">Oldest First</option>
+                            </select>
+                        </div>
+
+                        <!-- Apply Filters Button -->
+                        <div class="align-self-end">
+                            <button id="applyFiltersBtn" class="btn btn-primary">Apply Filters</button>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- Reports Table -->
+                <div class="table-responsive bg-white shadow-sm rounded">
+                    <table class="table table-striped table-hover align-middle">
+                        <thead class="table-light border-bottom">
+                            <tr>
+                                <th scope="col" class="text-secondary">#</th>
+                                <th scope="col" class="text-secondary">Name of Report</th>
+                                <th scope="col" class="text-secondary">Submitted By</th>
+                                <th scope="col" class="text-secondary">Date Submitted</th>
+                                <th scope="col" class="text-secondary">Status</th>
+                                <th scope="col" class="text-secondary">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reportRows">
+                            <!-- Initial Rows -->
+                            <tr>
+                                <td class="text-muted">1</td>
+                                <td>Midterm Exam Results</td>
+                                <td>Dr. Jane Smith</td>
+                                <td class="text-muted">2025-01-06</td>
+                                <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                <td>
+                                    <a href="report-view.html" class="text-primary" title="View Report">
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">2</td>
+                                <td>Seminar on AI</td>
+                                <td>Mr. John Doe</td>
+                                <td class="text-muted">2025-01-04</td>
+                                <td><span class="badge bg-success">Approved</span></td>
+                                <td>
+                                    <a href="report-view.html" class="text-primary" title="View Report">
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">3</td>
+                                <td>Monthly Attendance Report</td>
+                                <td>Ms. Alice Johnson</td>
+                                <td class="text-muted">2025-01-03</td>
+                                <td><span class="badge bg-danger">Rejected</span></td>
+                                <td>
+                                    <a href="report-view.html" class="text-primary" title="View Report">
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <script>
+                // JavaScript to dynamically generate additional rows
+                const tbody = document.getElementById("reportRows");
+
+                for (let i = 4; i <= 20; i++) {
+                    const status = i % 3 === 0 ? "Approved" : i % 3 === 1 ? "Pending" : "Rejected";
+                    const badgeClass = i % 3 === 0 ? "bg-success" : i % 3 === 1 ? "bg-warning text-dark" : "bg-danger";
+                    const date = `2025-01-${10 + i}`;
+
+                    // Create a new row
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                    <td class="text-muted">${i}</td>
+                    <td>Sample Report ${i}</td>
+                    <td>Faculty Member ${i}</td>
+                    <td class="text-muted">${date}</td>
+                    <td><span class="badge ${badgeClass}">${status}</span></td>
+                    <td>
+                      <a href="report-view.html" class="text-primary" title="View Report">
+                        <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </td>
+                  `;
+                    tbody.appendChild(row);
+                }
+            </script>
+
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="script/main.js"></script>
+
+    <script>
+        document.getElementById("applyFiltersBtn").addEventListener("click", () => {
+            const statusFilter = document.getElementById("filterStatus").value;
+            const sortOrder = document.getElementById("sortDate").value;
+
+            // Get all table rows
+            const rows = document.querySelectorAll("#reportRows tr");
+
+            console.log(rows);
+
+
+            // Filter rows
+            rows.forEach(row => {
+                const status = row.querySelector(".badge").textContent.trim().toLowerCase();
+                const matchesStatus = statusFilter === "all" || status === statusFilter;
+
+                // Show or hide rows based on filter criteria
+                row.style.display = matchesStatus ? "" : "none";
+            });
+
+            // Sort rows by date
+            const visibleRows = Array.from(rows).filter(row => row.style.display !== "none");
+            const sortedRows = visibleRows.sort((a, b) => {
+                const dateA = new Date(a.querySelector("td:nth-child(5)").textContent.trim());
+                const dateB = new Date(b.querySelector("td:nth-child(5)").textContent.trim());
+
+                return sortOrder === "latest" ? dateB - dateA : dateA - dateB;
+            });
+
+            // Append sorted rows back to the table
+            const tbody = document.getElementById("reportRows");
+            tbody.innerHTML = "";
+            sortedRows.forEach(row => tbody.appendChild(row));
+        });
+
+    </script>
+
+</body>
+
+</html>
