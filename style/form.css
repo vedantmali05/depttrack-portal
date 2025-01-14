@@ -66,3 +66,8 @@ fieldset .password-visibility-btn.visible .eye-slash {
   border-radius: 0.8rem;
   margin-bottom: 0.8rem;
 }
+
+
+input, textarea, button, a {
+  font-size: var(--fs-400) !important;
+}

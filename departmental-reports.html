@@ -11,67 +11,52 @@
     <link rel="stylesheet" href="style/main.css">
 
     <style>
-        /* Filter and Sorting Section Styling */
         section .form-label {
             font-weight: 500;
-            /* Emphasize labels for readability */
         }
 
         section .form-select {
             border-radius: 8px;
-            /* Add subtle rounding for inputs */
             padding: 0.8rem 1rem;
-            /* Larger padding for better usability */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            /* Add subtle shadow */
+            font-size: var(--fs-400);
         }
 
         section .btn-primary {
             font-size: 1.6rem;
-            /* Ensure button text is prominent */
             border-radius: 8px;
-            /* Round the button corners */
             transition: all 0.3s ease-in-out;
         }
 
         section .btn-primary:hover {
             background-color: #0056b3;
-            /* Darker hover effect */
             transform: translateY(-2px);
-            /* Add subtle lift effect on hover */
         }
 
         section .d-flex.flex-wrap {
             border: 1px solid #e6e6e6;
-            /* Add border around the section */
             border-radius: 12px;
-            /* Slightly round the section */
             background-color: #f9f9f9;
-            /* Light gray background */
+            padding: 1.6rem;
         }
 
         section .d-flex.flex-wrap>div {
             flex: 1;
-            /* Ensure equal spacing for dropdowns */
             min-width: 250px;
-            /* Minimum width for better alignment */
         }
 
         @media (max-width: 768px) {
             section .d-flex.flex-wrap {
                 flex-direction: column;
                 padding: 1.5rem;
-                /* Add more padding for smaller screens */
             }
 
             section .d-flex.flex-wrap>div {
                 width: 100%;
-                /* Full width for dropdowns */
             }
 
             section .btn-primary {
                 width: 100%;
-                /* Full width for button */
                 text-align: center;
             }
         }
@@ -190,7 +175,7 @@
                                 <td class="text-muted">2025-01-06</td>
                                 <td><span class="badge bg-warning text-dark">Pending</span></td>
                                 <td>
-                                    <a href="report-view.html" class="text-primary" title="View Report">
+                                    <a href="./report-view.html" class="text-primary" title="View Report">
                                         <i class="bi bi-arrow-right"></i>
                                     </a>
                                 </td>
@@ -202,7 +187,7 @@
                                 <td class="text-muted">2025-01-04</td>
                                 <td><span class="badge bg-success">Approved</span></td>
                                 <td>
-                                    <a href="report-view.html" class="text-primary" title="View Report">
+                                    <a href="./report-view.html" class="text-primary" title="View Report">
                                         <i class="bi bi-arrow-right"></i>
                                     </a>
                                 </td>
@@ -214,7 +199,7 @@
                                 <td class="text-muted">2025-01-03</td>
                                 <td><span class="badge bg-danger">Rejected</span></td>
                                 <td>
-                                    <a href="report-view.html" class="text-primary" title="View Report">
+                                    <a href="./report-view.html" class="text-primary" title="View Report">
                                         <i class="bi bi-arrow-right"></i>
                                     </a>
                                 </td>
@@ -242,7 +227,7 @@
                     <td class="text-muted">${date}</td>
                     <td><span class="badge ${badgeClass}">${status}</span></td>
                     <td>
-                      <a href="report-view.html" class="text-primary" title="View Report">
+                      <a href="./report-view.html" class="text-primary" title="View Report">
                         <i class="bi bi-arrow-right"></i>
                       </a>
                     </td>
@@ -264,9 +249,6 @@
 
             // Get all table rows
             const rows = document.querySelectorAll("#reportRows tr");
-
-            console.log(rows);
-
 
             // Filter rows
             rows.forEach(row => {
